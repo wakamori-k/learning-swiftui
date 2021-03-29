@@ -28,7 +28,6 @@ extension TodoEntity {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
-
     
     enum Category: Int16 {
         case ImpUrg_1st     // Important & Urgent (第Ⅰ領域）

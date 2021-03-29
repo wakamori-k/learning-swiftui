@@ -34,31 +34,18 @@ struct TodoList: View {
 }
 
 struct TodoList_Previews: PreviewProvider {
-    
-    static let container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "ToDoList")
-        container.loadPersistentStores { storeDescriptions, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        }
-        
-        return container
-    }()
-    
-    static let context = container.viewContext
-    
+    static var container = PersistenceController.preview.container
+    @Environment(\.managedObjectContext) static var context
     
     static var previews: some View {
         // テストデータの全削除
-        let request = NSBatchDeleteRequest(
-            fetchRequest: NSFetchRequest(entityName: "TodoEntity"))
-        try! container.persistentStoreCoordinator.execute(request,
-                                                          with: context)
+//        let request = NSBatchDeleteRequest(
+//            fetchRequest: NSFetchRequest(entityName: "TodoEntity"))
+//        try! container.persistentStoreCoordinator.execute(request,                                                          with: context)
 
         // データを追加
         TodoEntity.create(in: context,
-                          category: .ImpUrg_1st, task: "炎上プロジェクト")
+                          category: .ImpUrg_1st, task: "炎上プロジェクトaa")
         TodoEntity.create(in: context,
                           category: .ImpNUrg_2nd, task: "自己啓発")
         TodoEntity.create(in: context,
