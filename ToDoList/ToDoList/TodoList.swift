@@ -23,7 +23,7 @@ struct TodoList: View {
             List {
                 ForEach(todoList) { todo in
                     if todo.category == self.category.rawValue {
-                        Text(todo.task ?? "no title")
+                        TodoDetailRow(todo: todo, hideIcon: true)
                     }
                 }
             }
@@ -35,7 +35,7 @@ struct TodoList: View {
 
 struct TodoList_Previews: PreviewProvider {
     static var container = PersistenceController.preview.container
-    @Environment(\.managedObjectContext) static var context
+    static var context = container.viewContext
     
     static var previews: some View {
         // テストデータの全削除

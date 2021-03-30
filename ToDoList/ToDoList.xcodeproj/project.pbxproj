@@ -74,6 +74,7 @@
 		B8536C7726128FF6000A7E82 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				B8536C7826128FF6000A7E82 /* ToDoListApp.swift */,
 				B8536C9E26129063000A7E82 /* Extension */,
 				B8536C7A26128FF6000A7E82 /* ContentView.swift */,
 				B8536C912612904F000A7E82 /* CategoryImage.swift */,
@@ -83,7 +84,6 @@
 				B8536C942612904F000A7E82 /* TodoDetailRow.swift */,
 				B8536C932612904F000A7E82 /* TodoList.swift */,
 				B8536C922612904F000A7E82 /* UserView.swift */,
-				B8536C7826128FF6000A7E82 /* ToDoListApp.swift */,
 				B8536C7C26128FF8000A7E82 /* Assets.xcassets */,
 				B8536C8126128FF8000A7E82 /* Persistence.swift */,
 				B8536C8626128FF8000A7E82 /* Info.plist */,
