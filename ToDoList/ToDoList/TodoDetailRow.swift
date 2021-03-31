@@ -42,11 +42,10 @@ struct TodoDetailRow: View {
 }
 
 struct TodoDetailRow_Previews: PreviewProvider {
+    static let container = PersistenceController.preview.container
+    static let context = container.viewContext
     
     static var previews: some View {
-        let container = PersistenceController.preview.container
-        let context = container.viewContext
-        
         let newTodo = TodoEntity(context: context)
         newTodo.task = "将来への人間関係づくり"
         newTodo.state = TodoEntity.State.done.rawValue

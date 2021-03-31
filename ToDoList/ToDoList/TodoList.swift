@@ -5,16 +5,14 @@
 //  Created by 若森和昌 on 2021/03/29.
 //
 
-import UIKit
 import SwiftUI
 import CoreData
 
 struct TodoList: View {
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \TodoEntity.time,
-                                           ascending: true)],
-        animation: .default)
-    var todoList: FetchedResults<TodoEntity>
+        sortDescriptors: [NSSortDescriptor(keyPath: \TodoEntity.time, ascending: true)],
+        animation: .default
+    ) var todoList: FetchedResults<TodoEntity>
 
     let category: TodoEntity.Category
     
@@ -28,7 +26,7 @@ struct TodoList: View {
                 }
             }
             QuickNewTask(category: category)
-            padding()
+                .padding()
         }
     }
 }
@@ -39,13 +37,13 @@ struct TodoList_Previews: PreviewProvider {
     
     static var previews: some View {
         // テストデータの全削除
-//        let request = NSBatchDeleteRequest(
-//            fetchRequest: NSFetchRequest(entityName: "TodoEntity"))
-//        try! container.persistentStoreCoordinator.execute(request,                                                          with: context)
+        let request = NSBatchDeleteRequest(
+            fetchRequest: NSFetchRequest(entityName: "TodoEntity"))
+        try! container.persistentStoreCoordinator.execute(request, with: context)
 
         // データを追加
         TodoEntity.create(in: context,
-                          category: .ImpUrg_1st, task: "炎上プロジェクトaa")
+                          category: .ImpUrg_1st, task: "炎上プロジェクト")
         TodoEntity.create(in: context,
                           category: .ImpNUrg_2nd, task: "自己啓発")
         TodoEntity.create(in: context,

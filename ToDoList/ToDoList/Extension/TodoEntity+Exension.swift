@@ -13,6 +13,7 @@ extension TodoEntity {
                        category: Category,
                        task: String,
                        time: Date? = Date()){
+        
         let todo = self.init(context: managedObjectContext)
         print(task)
         todo.time = time
