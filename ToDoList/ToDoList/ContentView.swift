@@ -28,6 +28,8 @@ struct ContentView: View {
                 }
             }.padding()
             
+            TaskToday()
+            
         }.background(Color.tBackground)
         .edgesIgnoringSafeArea(.bottom)
     }

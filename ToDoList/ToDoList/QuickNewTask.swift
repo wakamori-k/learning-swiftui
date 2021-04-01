@@ -13,11 +13,16 @@ struct QuickNewTask: View {
     @Environment(\.managedObjectContext) var viewContext
     
     private func addNewTask() {
-        TodoEntity.create(in: self.viewContext, category: self.category, task: self.newTask)
+        TodoEntity.create(in: viewContext, category: category, task: newTask)
+        newTask = ""
     }
     
     private func cancelTask() {
         newTask = ""
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                 to: nil,
+                                 from: nil,
+                                 for: nil)
     }
     
     var body: some View {
@@ -38,7 +43,7 @@ struct QuickNewTask: View {
             }) {
                 Text("キャンセル").foregroundColor(.tRed)
             }
-        }
+        }.foregroundColor(.black)
     }
 }
 
